@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>/</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		* {
+		    padding: 20px;
+		    margin: 0px;
+		}
+		.flex,
+		.flex > div {
+		    box-sizing: border-box;/*box-sizing 属性允许您以特定的方式定义匹配某个区域的特定元素。假如您需要并排放置两个带边框的框，可通过将 box-sizing 设置为 "border-box"。这可令浏览器呈现出带有指定宽度和高度的框，并把边框和内边距放入框中。*/
+		}
+		.flex {
+		    border: 1px solid grey;
+		    display: -webkit-flex;
+		    display: -ms-flexbox;
+		    display: flex;
+		    -webkit-justify-content: space-between;
+		        -ms-flex-pack: justify;
+		            justify-content: space-between;
+		    -webkit-align-items: center;
+		        -ms-flex-align: center;
+		            align-items: center;
+		    -webkit-flex: none;
+		        -ms-flex: none;
+		            flex: none;
+		}
+
+		.flex > div {
+		    width: 150px;
+		    border: 1px solid #f00;
+		    padding: 0;
+		    margin-bottom: 10px;
+		}
+
+		.flex_item1 {
+		    height: 120px;
+		}
+
+		.flex_item2 {
+		    height: 100px;
+		}
+
+		.flex_item3 {
+		    height: 40px;
+		}
+
+		.flex_item4 {
+		    height: 200px;
+		    border: 1px solid blue!important;/* important对 一个良好（或者是标准）的浏览器来说，不仅仅是从顺序上提升代码的优先级，还可以用来提升class的优先级（比如firefox），但是从IE对前者的不支持可以看出，这只是IE的一大BUG，而不能说它“不认识、不支持”！
+*/
+		}
+
+		@media all and (max-width: 640px) {/*@media 可以针对不同的屏幕尺寸设置不同的样式，特别是如果你需要设置设计响应式的页面，@media 是非常有用的。当你重置浏览器大小的过程中，页面也会根据浏览器的宽度和高度重新渲染页面。*/
+		    .flex_item4 {
+		        -webkit-order: -1;
+		            -ms-flex-order: -1;
+		                order: -1;
+		    }
+		    .flex {
+		        -webkit-flex-wrap: wrap;
+		            -ms-flex-wrap: wrap;
+		                flex-wrap: wrap;
+		        -webkit-align-items: flex-start;
+		            -ms-flex-align: start;
+		                align-items: flex-start;
+		    }
+		}
+	</style>
+</head>
+<body>
+	<div class="flex">
+        <div class="flex_item1">1</div>
+        <div class="flex_item2">2</div>
+        <div class="flex_item3">3</div>
+        <div class="flex_item4">4</div>
+    </div>
+</body>
+</html>
